@@ -1,0 +1,56 @@
+/*importa as fontes de texto Righteous (Regular 400px) e Sarala (Bold 70px).*/
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Sarala&display=swap');
+
+/* Reset CSS: O html tem algumas configurações padrões de estilização, 
+como tamanho da margem, fonte e tamanho de texto, etc.
+Realizando um reset, temos mais controle sobre toda a estilização da página.
+*/
+/* O asterisco(*) significa que as atribuições de estilo dentro das chaves({})
+serão aplicadas para TODOS os ELEMENTOS.*/
+* {/* Reset CSS. */
+    margin: 0;/* margem: distância "para fora" em um elemento. */
+    padding: 0;/* preenchimento: distância "para dentro" em um elemento. */
+    box-sizing: border-box; /**/
+    text-decoration: none;/* sem decorações*/
+}
+
+body {/* Reset CSS. */
+    font-size: 100%;
+
+    /* background degradê bunitinho. */
+    background: linear-gradient(68.15deg, #2F2325 16.62%, #8E5D52 85.61%);
+}
+
+/*Guia de Flex-Box: https://css-tricks.com/snippets/css/a-guide-to-flexbox/*/
+
+
+/*cabecalho é um elemento pai, onde 
+cabecalho-logo e cabecalho-menu são elementos filhos*/
+
+.cabecalho{
+    display: flex;
+    flex-direction: row;/* (default): left to right in ltr; right to left in rtl*/
+    align-items: center;/* alinha os itens no centro. */
+    /*justify content: modo de espaçamento entre os itens. */
+    justify-content: space-around;
+    padding: 24px;
+}
+
+.cabecalho-logo{
+    /*altura: ao mudar a altura, a largura é automaticamente mudada tbm, assim a imagem não fica esticada.*/
+    /*Ou seja: mudar a altura é basicamente mudar o TAMANHO.*/
+    height: 72px;
+}
+
+.cabecalho-menu{/*note que o menu de navegação <nav> é pai dos filhos âncoras <a> */
+    display: flex;
+    gap: 32px;/* Vão entre TODOS os filhos.*/
+    font-family: 'Sarala', sans-serif;
+    color: #FFF2E7;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+/* Dica de como pensar na hora de criar a estilização:
+"Do mais de cima para o mais de baixo, 
+do parente(mais de fora) para o filho (mais de dentro). */
