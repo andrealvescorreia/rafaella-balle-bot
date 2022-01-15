@@ -1,5 +1,12 @@
+/* LINK FIGMA: https://www.figma.com/file/myqP66iQwzjwjrIAJyyrip/BalleBot?node-id=0%3A1*/
+/* LINK TUTORIAL: https://www.youtube.com/watch?v=llF6vD-RljE&t=2314s */
+/* Guia de Flex-Box: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+
 /*importa as fontes de texto Righteous (Regular 400px) e Sarala (Bold 70px).*/
-@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Sarala&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Sarala:wght@400;700&display=swap');
+
+
+
 
 /* Reset CSS: O html tem algumas configurações padrões de estilização, 
 como tamanho da margem, fonte e tamanho de texto, etc.
@@ -14,6 +21,13 @@ serão aplicadas para TODOS os ELEMENTOS.*/
     text-decoration: none;/* sem decorações*/
 }
 
+html{
+    --bege: #ECD6C4;
+    --bege-claro: #FFF2E7;
+    --bege-escuro: color: hsla(350, 15%, 16%, 1);
+    --hover-cor: rgba(230, 211, 196, 0.5);
+}
+
 body {/* Reset CSS. */
     font-size: 100%;
 
@@ -21,18 +35,22 @@ body {/* Reset CSS. */
     background: linear-gradient(68.15deg, #2F2325 16.62%, #8E5D52 85.61%);
 }
 
-/*Guia de Flex-Box: https://css-tricks.com/snippets/css/a-guide-to-flexbox/*/
 
 
-/*cabecalho é um elemento pai, onde 
-cabecalho-logo e cabecalho-menu são elementos filhos*/
+
+/*'cabecalho' é um elemento pai, no qual 
+'cabecalho-logo' e 'cabecalho-menu' são elementos filhos. */
+
+/* Dica de como pensar na hora de criar a estilização:
+"Do mais de cima para o mais de baixo, 
+do parente (mais de fora) para o filho (mais de dentro). */
 
 .cabecalho{
     display: flex;
-    flex-direction: row;/* (default): left to right in ltr; right to left in rtl*/
+    flex-direction: row;/* row = linha. (default): left to right in ltr; right to left in rtl*/
     align-items: center;/* alinha os itens no centro. */
     /*justify content: modo de espaçamento entre os itens. */
-    justify-content: space-around;
+    justify-content: space-around;/* os itens ficam centralizados horizontalmente. */
     padding: 24px;
 }
 
@@ -45,12 +63,136 @@ cabecalho-logo e cabecalho-menu são elementos filhos*/
 .cabecalho-menu{/*note que o menu de navegação <nav> é pai dos filhos âncoras <a> */
     display: flex;
     gap: 32px;/* Vão entre TODOS os filhos.*/
+    
+}
+
+.cabecalho-menu-item{
     font-family: 'Sarala', sans-serif;
-    color: #FFF2E7;
+    color: var(--bege-claro);
     font-weight: 400;
     font-size: 18px;
 }
 
-/* Dica de como pensar na hora de criar a estilização:
-"Do mais de cima para o mais de baixo, 
-do parente(mais de fora) para o filho (mais de dentro). */
+.cabecalho-menu-item:hover{
+    color: var(--hover-cor);
+}
+
+.conteudo{
+    margin-bottom: 48px;
+    border-top: 0.4px solid var(--bege-claro);
+}
+
+.conteudo-primario{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;/* os itens ficam centralizados entre si verticalmente. */
+}
+
+.conteudo-primario-escrito{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.conteudo-primario-escrito-titulo{
+    font-family: 'Righteous', cursive;
+    font-weight: 400;
+    font-size: 64px;
+    color: var(--bege-claro);
+}
+
+.conteudo-primario-escrito-subtitulo{
+    font-family: 'Sarala',sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    color: var(--bege);
+}
+
+.conteudo-primario-escrito-botao{
+    background-color: var(--bege);;/* cor de fundo da box*/
+
+    font-family: 'Sarala',sans-serif;
+    font-size: 24px;
+    color: var(--bege-escuro);;
+
+
+    border: none;/* borda do botao: nenhuma*/
+
+    width: 185px;/* dimensões da box */
+    height: 67px;
+
+
+    box-shadow: 4px 5px 4px 0px hsla(0, 0%, 0%, 0.25); /* sombra da box*/
+    border-radius: 20px;
+    
+
+}
+
+/* hover: é uma pseudoclasse que é usada para adicionar efeitos a uma box
+ quando o usuário passa o mouse em cima dela. */
+
+/* No caso do botão, nós mudamos a cor dele. */
+.conteudo-primario-escrito-botao:hover{
+    background-color: var(--hover-cor);
+}
+
+.conteudo-primario-imagem{
+    height: 430px;/*tamanho*/
+}
+
+
+
+.conteudo-secundario{
+    margin-top: 48px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;/*alinha*/
+    gap: 30px;
+}
+
+.conteudo-secundario-texto{
+    gap: 24px;
+
+    font-family: 'Sarala', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 29px;
+    text-align: center;
+    
+    color: var(--bege);
+
+}
+
+.conteudo-secundario-titulo{
+    padding-top: 48px;
+    border-top: 0.35px solid var(--bege-claro);
+    margin-bottom: 16px;
+
+    font-family: 'Righteous', cursive;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+    color: var(--bege-claro);
+
+}
+
+.rodape{
+    /*display: flex;
+    justify-content: space-around;*/
+    padding: 32px;
+    border-top: 0.4px solid var(--bege-claro);/* linhazinha branca visual que separa o rodapé do resto.*/
+    
+}
+
+.rodape-imagem{
+    /* ao inves de usar o display: flex, vamos usar o block (bloco), 
+    que é útil para centralizar um único item, que nesse caso é uma imagem. */
+    display: block;
+    margin: 0 auto;
+
+    height: 48px;/*tamanho*/
+}
